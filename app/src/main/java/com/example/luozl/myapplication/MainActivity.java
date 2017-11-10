@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mybytton();
     }
 
+    //修改测试
     public void mybuttonclick(View v)
     {
         Toast toast=Toast.makeText(this,"mybutton",Toast.LENGTH_SHORT);
