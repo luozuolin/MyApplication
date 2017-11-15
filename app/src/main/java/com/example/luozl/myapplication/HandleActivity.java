@@ -49,7 +49,7 @@ public class HandleActivity extends AppCompatActivity {
     public   void download(View source) throws MalformedURLException
     {
         DownTask task=new DownTask(this);
-        task.execute(new URL("http://118.212.138.238/file3.data.weipan.cn/43441533/615bac6898ceee7abe04c664bba00577e19aa162?ip=1507815276,111.200.62.30&ssig=uP9FIaS%2F7T&Expires=1507815876&KID=sae,l30zoo1wmz&fn=MongoDB%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.pdf&skiprd=2&se_ip_debug=111.200.62.30&corp=2&from=1221134&wsiphost=local"));
+        task.execute(new URL("http://172.28.34.72:8081/nexus/content/groups/public/com/qb/platform/com-qb-platform-system-mysql/maven-metadata.xml"));
     }
     class  DownTask extends AsyncTask<URL,Integer,String>
     {
@@ -71,9 +71,11 @@ public class HandleActivity extends AppCompatActivity {
                 while((line=br.readLine())!=null)
                 {
                     sb.append(line+"\n");
+                    Thread.sleep(100);
                     hasRead++;
                     publishProgress(hasRead);
                 }
+                return sb.toString();
             }catch (Exception  ex)
             {
                 ex.printStackTrace();
